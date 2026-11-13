@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mezey Shop — Apple техніка</title>
+<meta name="description" content="Apple техніка | Mezey Shop. Нова та вживана техніка Apple і консолі PlayStation 5. Ремонт будь-якої складності. +38 096 847 76 27">
+<meta name="theme-color" content="#0f0f0f">
+<meta property="og:title" content="Mezey Shop — Apple техніка">
+<meta property="og:description" content="Нова та вживана техніка Apple, консолі PlayStation 5, ремонт будь-якої складності.">
+<meta property="og:image" content="img/og.png">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000;--header:#0f0f0f;--card:#1d1d1d;--card2:#2a2a2a;--line:rgba(255,255,255,.08);
+  --muted:#888;--text2:#bdbdbd;--red:#c42a2c;--lavender:#a99bf2;--teal:#1fb5a8;--blue:#3d8bf2;
+  --green:#2dbe60;--orange:#f0823c;--radius:4px;
+  --catalog:linear-gradient(90deg,#5b2bd6,#9b2fd3);--buy:linear-gradient(90deg,#e3173e,#7b2bda);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{color-scheme:dark;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:#fff;font:15px/1.4 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 8px}
+.ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* Шапка */
+.top{position:sticky;top:0;z-index:20;background:var(--header);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.top .wrap{display:flex;align-items:center;gap:6px;height:58px}
+.iconbtn{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;position:relative;flex:none}
+.iconbtn:hover{background:var(--card)}
+.brand{flex:1;display:flex;justify-content:center;align-items:center;gap:8px;min-width:0}
+.brand img{height:38px;width:38px}
+.brand span{font:500 23px/1 Jost,Futura,"Century Gothic",sans-serif;white-space:nowrap}
+@media(max-width:400px){.top .wrap{gap:0}.brand{gap:6px}.brand span{font-size:19px}.brand img{width:32px;height:32px}}
+@media(max-width:345px){.brand span{display:none}.brand img{width:40px;height:40px}}
+.badge{position:absolute;top:4px;right:2px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--red);font-size:11px;font-weight:700;display:grid;place-items:center}
+
+main{padding:8px 0 30px}
+.stack>*+*{margin-top:10px}
+h1,h2{font-weight:700}
+.h2{font-size:22px;text-align:center;margin:18px 0 10px}
+
+/* Пошук */
+.search{display:flex;align-items:center;background:var(--card);border-radius:var(--radius);min-height:50px;padding:0 6px 0 16px}
+.search input{flex:1;background:none;border:0;outline:0;font-size:17px;min-width:0;height:50px}
+.search input::placeholder{color:#fff;opacity:.9}
+.search input::-webkit-search-cancel-button{display:none}
+
+/* Сервіси під пошуком */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.services a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;background:var(--card);border-radius:var(--radius);font-weight:700;font-size:14px}
+.services svg{width:16px;height:16px}
+
+/* Блок магазину замість банерів */
+.hero{display:flex;gap:16px;align-items:center;background:radial-gradient(120% 140% at 0% 0%,#26201a 0%,#111 55%);border:1px solid var(--line);border-radius:12px;padding:18px}
+.hero img{width:104px;height:104px;border-radius:50%;background:#000;flex:none}
+.hero h1{font-size:22px;line-height:1.2}
+.hero ul{list-style:none;margin:8px 0 12px;color:var(--text2);font-size:14px}
+.hero li::before{content:"• ";color:var(--orange)}
+@media(max-width:520px){.hero{flex-direction:column;text-align:center}.hero .row{justify-content:center}}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border-radius:var(--radius);font-weight:700;background:var(--card2)}
+.btn.primary{background:var(--buy)}
+.btn.outline{border:1px solid rgba(255,255,255,.6);background:none}
+.btn.block{width:100%}
+.catalog-btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;width:100%;border-radius:var(--radius);background:var(--catalog);font-size:17px;font-weight:700}
+
+/* Моделі */
+.hscroll{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.hscroll::-webkit-scrollbar{display:none}
+.quick{flex:none;width:130px;background:var(--card);border-radius:var(--radius);padding:12px 8px;text-align:center;font-size:12px;font-weight:700}
+.quick img{width:84px;height:70px;object-fit:contain;margin:0 auto 6px}
+
+/* Категорії */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.tile{background:var(--card);border-radius:var(--radius);padding:12px 4px;text-align:center;font-size:12px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:8px}
+.tile img{height:56px;width:100%;object-fit:contain;padding:0 12px}
+.tile .glyph{height:56px;display:grid;place-items:center;color:var(--lavender)}
+.tile .glyph svg{width:40px;height:40px}
+@media(min-width:760px){.tiles{grid-template-columns:repeat(6,1fr)}}
+
+.about{padding:14px 8px}
+.about p+p{margin-top:8px}
+.about p:first-child{font-size:20px;font-weight:700}
+.about p:not(:first-child){color:var(--text2);font-size:14px}
+.foot-note{font-size:11px;color:var(--muted);text-align:center}
+
+/* Список товарів */
+.crumbs{font-size:12px;color:var(--muted);margin:6px 0}
+.list-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.list-head h1{font-size:24px}
+.count{color:var(--muted);font-size:13px}
+.toolbar{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.toolbar select,.toolbar label{min-height:44px;background:var(--card);border:0;border-radius:var(--radius);padding:0 10px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;width:100%}
+.toolbar input{accent-color:var(--orange);width:18px;height:18px}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:8px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:36px;padding:0 14px;border-radius:18px;background:var(--card);font-size:13px;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center}
+.chip[aria-current=true]{background:#fff;color:#000}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:10px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1050px){.grid{grid-template-columns:repeat(5,1fr)}}
+.card{background:var(--card);border-radius:var(--radius);padding:10px;display:flex;flex-direction:column;position:relative}
+.card .pic{aspect-ratio:1;background:#fff;border-radius:var(--radius);display:grid;place-items:center;overflow:hidden;margin-bottom:10px}
+.card .pic img{width:88%;height:88%;object-fit:contain}
+.card .name{font-size:13px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:51px}
+.card .old{color:var(--muted);text-decoration:line-through;font-size:12px;margin-top:8px;min-height:16px}
+.card .price{font-size:18px;font-weight:800}
+.card .monthly{font-size:11px;color:var(--lavender);font-weight:600}
+.stock{font-size:11px;margin-top:6px;color:var(--green)}
+.stock.no{color:var(--muted)}
+.disc{position:absolute;top:16px;left:16px;background:var(--lavender);color:#000;font-size:12px;font-weight:800;padding:2px 6px;border-radius:3px}
+.fav{position:absolute;top:12px;right:12px;width:40px;height:40px;display:grid;place-items:center;color:#555}
+.fav[aria-pressed=true]{color:var(--red)}
+.fav[aria-pressed=true] svg{fill:currentColor}
+.more{margin:14px auto 0;display:flex;max-width:320px}
+.empty{text-align:center;color:var(--muted);padding:40px 16px}
+
+/* Сторінка товару */
+.product{display:grid;gap:12px}
+@media(min-width:900px){.product{grid-template-columns:1fr 1fr;align-items:start}}
+.panel{background:var(--card);border-radius:var(--radius);padding:14px}
+.gallery{background:#fff;border-radius:var(--radius);aspect-ratio:1;display:grid;place-items:center;position:relative}
+.gallery img{width:86%;height:86%;object-fit:contain}
+.product h1{font-size:22px;line-height:1.25}
+.code{font-size:11px;color:var(--muted);font-weight:600;margin-top:6px}
+.prices{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:12px}
+.prices .now{font-size:30px;font-weight:800}
+.prices .was{color:var(--muted);text-decoration:line-through}
+.prices .pct{background:var(--lavender);color:#000;font-size:12px;font-weight:800;padding:2px 6px;border-radius:3px}
+.variant h3{font-size:15px;color:var(--text2);margin:14px 0 8px}
+.variant .row a{min-height:40px;padding:0 14px;border-radius:var(--radius);background:var(--card2);display:inline-flex;align-items:center;font-size:13px;font-weight:600}
+.variant .row a[aria-current=true]{background:#fff;color:#000}
+.buy{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.perks{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:12px}
+.perk{background:var(--card2);border-radius:var(--radius);padding:10px;font-size:12px;display:flex;gap:8px;align-items:center}
+.perk svg{color:var(--orange)}
+.tabs{display:flex;gap:6px;margin-bottom:12px}
+.tabs a{min-height:40px;padding:0 14px;border-radius:var(--radius);background:var(--card2);font-weight:700;font-size:14px;display:inline-flex;align-items:center}
+.tabs a[aria-current=true]{background:#fff;color:#000}
+.desc{color:var(--text2);white-space:pre-line;font-size:14px}
+.specs{width:100%;border-collapse:collapse;font-size:13px}
+.specs td{padding:8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.specs td:first-child{color:var(--muted);width:45%;padding-right:10px}
+
+/* Кошик */
+.line{display:grid;grid-template-columns:72px 1fr;gap:10px;background:var(--card);border-radius:var(--radius);padding:10px}
+.line .pic{background:#fff;border-radius:var(--radius);aspect-ratio:1;display:grid;place-items:center}
+.line .pic img{width:86%;height:86%;object-fit:contain}
+.line .name{font-size:13px}
+.qty{display:flex;align-items:center;gap:4px;margin-top:8px}
+.qty button{width:40px;height:40px;border-radius:var(--radius);background:var(--card2);font-size:18px;font-weight:700}
+.qty span{min-width:28px;text-align:center;font-weight:700}
+.qty .rm{margin-left:auto;width:auto;padding:0 10px;font-size:13px;color:var(--muted);background:none}
+.total{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:17px}
+.total b{font-size:26px;font-weight:800}
+.field{display:block;margin-top:10px}
+.field span{display:block;font-size:13px;color:var(--text2);margin-bottom:4px}
+.field input{width:100%;min-height:48px;background:var(--bg);border:1px solid var(--card2);border-radius:var(--radius);padding:0 12px;font-size:16px}
+.field input[aria-invalid=true]{border-color:#ff6b6b}
+.err{color:#ff6b6b;font-size:12px;margin-top:4px}
+.opts{display:grid;gap:6px;margin-top:8px}
+@media(min-width:760px){.opts{grid-template-columns:repeat(3,1fr)}}
+.opt{display:flex;gap:10px;align-items:center;background:var(--bg);border-radius:var(--radius);padding:12px;cursor:pointer;border:1px solid var(--card2)}
+.opt:has(input:checked){border-color:var(--orange)}
+.opt input{accent-color:var(--orange);width:18px;height:18px;flex:none}
+.opt small{display:block;color:var(--muted);font-size:12px}
+.note{font-size:12px;color:var(--muted);text-align:center}
+.checkout{max-width:720px;margin:12px auto 0}
+.ok{text-align:center;padding:20px 10px;max-width:640px;margin:0 auto}
+.ok .mark{width:64px;height:64px;border-radius:50%;background:var(--green);display:grid;place-items:center;margin:0 auto 12px}
+.ok pre{text-align:left;white-space:pre-wrap;background:var(--card);border-radius:var(--radius);padding:12px;font:13px/1.45 ui-monospace,Menlo,monospace;margin:12px 0}
+.ok .row{justify-content:center}
+
+/* Меню і контакти */
+.overlay{position:fixed;inset:0;z-index:40;background:var(--bg);overflow-y:auto;padding-top:env(safe-area-inset-top)}
+.overlay>div{max-width:640px;margin:0 auto}
+.overlay .head{display:flex;align-items:center;justify-content:space-between;height:58px;padding:0 8px}
+.menu-list{background:var(--card);border-radius:var(--radius);margin:0 8px 6px}
+.menu-list a,.menu-list button{display:flex;align-items:center;gap:12px;width:100%;min-height:52px;padding:0 14px;border-bottom:1px solid var(--line);text-align:left;font-weight:600}
+.menu-list>*:last-child{border-bottom:0}
+.menu-list .chev{margin-left:auto;color:var(--muted)}
+.sheet-wrap{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--header);width:100%;max-width:520px;border-radius:14px 14px 0 0;padding:16px 20px calc(24px + env(safe-area-inset-bottom))}
+.sheet h2{font-size:22px}
+.contact{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.contact:last-child{border-bottom:0}
+.contact .c-ico{width:44px;height:44px;border-radius:50%;background:var(--card2);display:grid;place-items:center;flex:none}
+.contact small{display:block;color:var(--muted);font-size:12px}
+.fab{position:fixed;left:16px;bottom:calc(24px + env(safe-area-inset-bottom));z-index:30;width:60px;height:60px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;box-shadow:0 3px 8px rgba(0,0,0,.4)}
+.fab svg{width:26px;height:26px}
+.fab.ring{animation:ring .12s ease-in-out 6 alternate 2s}
+@keyframes ring{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+@media (prefers-reduced-motion:reduce){.fab.ring{animation:none}}
+
+footer{border-top:1px solid var(--line);margin-top:20px;padding:24px 0 110px;color:var(--text2);font-size:14px}
+footer .row{gap:6px 18px;margin-top:8px}
+footer a{text-decoration:underline;text-underline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h11"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h11L21 8H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 9a8 8 0 0 1 14-3l2 2M20 15a8 8 0 0 1-14 3l-2-2"/><path d="M20 4v4h-4M4 20v-4h4"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 3 10.5l7 2.5 2.5 7z"/><path d="m10 13 4.5-4.5"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path d="M16 3c0 2-1.5 3.5-3.4 3.5C12.5 4.6 14 3 16 3zM12 8c1 0 2-.7 3.3-.7 1.4 0 2.8.8 3.5 2.1-3 1.7-2.5 6 .6 7.2-.6 1.6-1.4 3-2.3 4-.8.9-1.6 1.4-2.6 1.4-1.1 0-1.5-.6-2.8-.6s-1.8.6-2.8.6c-1 0-1.8-.6-2.6-1.5C4.4 18.4 3.5 15 4.3 12c.7-2.5 2.6-4 4.5-4 1.2 0 2.2.7 3.2.7z"/></symbol>
+  <symbol id="i-game" viewBox="0 0 24 24"><path d="M7 8h10a5 5 0 0 1 4.6 6.9l-.6 1.5a2.3 2.3 0 0 1-3.9.5L15 15H9l-2.1 1.9a2.3 2.3 0 0 1-3.9-.5l-.6-1.5A5 5 0 0 1 7 8z"/><path d="M8 10.5v3M6.5 12h3"/><circle cx="16" cy="11" r=".7"/><circle cx="17.5" cy="13" r=".7"/></symbol>
+  <symbol id="i-phone2" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+  <symbol id="i-watch" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 6l.5-3h5L15 6M9 18l.5 3h5l.5-3"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-tablet" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-audio" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></symbol>
+  <symbol id="i-cable" viewBox="0 0 24 24"><path d="M9 3v4M15 3v4M7 7h10v4a5 5 0 0 1-10 0zM12 16v5"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="12" r=".8"/><circle cx="12" cy="12" r=".8"/><circle cx="16" cy="12" r=".8"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="10" rx="1.5"/><path d="M3 19h18"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <button class="iconbtn" id="menuBtn" aria-label="Меню"><svg class="ico"><use href="#i-menu"/></svg></button>
+    <a class="iconbtn" href="#/search" aria-label="Пошук"><svg class="ico"><use href="#i-search"/></svg></a>
+    <a class="brand" href="#/" aria-label="Mezey Shop — на головну"><img src="img/logo.png" alt="" width="38" height="38"><span>Mezey Shop</span></a>
+    <button class="iconbtn" data-contacts aria-label="Контакти"><svg class="ico"><use href="#i-phone"/></svg></button>
+    <a class="iconbtn" href="#/cart" aria-label="Кошик"><svg class="ico"><use href="#i-cart"/></svg><span class="badge" id="cartBadge" hidden></span></a>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<footer><div class="wrap" id="footer"></div></footer>
+
+<button class="fab ring" data-contacts aria-label="Звʼязатися з нами"><svg class="ico"><use href="#i-phone"/></svg></button>
+
+<div class="overlay" id="menu" hidden role="dialog" aria-modal="true" aria-label="Каталог товарів"></div>
+<div class="sheet-wrap" id="contacts" hidden role="dialog" aria-modal="true" aria-label="Контакти"></div>
+
+<script src="data.js"></script>
+<script>
+"use strict";
+const MZ = window.MZ;
+const app = document.getElementById("app");
+const PAGE = 40;
+const ICONS = {applelogo: "apple", gamecontroller: "game", "arrow.triangle.2.circlepath": "swap", smartphone: "phone2",
+  applewatch: "watch", tv: "tv", ipad: "tablet", headphones: "audio", "cable.connector": "cable", "ellipsis.circle": "more",
+  laptopcomputer: "laptop"};
+const USED_CATS = [274, 66, 237, 3750, 4122, 2793, 1129];
+
+// ---------- Утиліти ----------
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const uah = n => n.toLocaleString("uk-UA").replace(/[  ,]/g, " ") + " ₴";
+const icon = (name, cls = "ico") => `<svg class="${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+const tokens = s => s.toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+function load(key, fallback) {
+  try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; }
+}
+function save(key, value) {
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* приватний режим — працюємо без збереження */ }
+}
+
+// ---------- Каталог ----------
+const byId = new Map(MZ.products.map(p => [p.id, p]));
+const cats = new Map(MZ.categories.map(c => [c.id, c]));
+const kids = new Map();
+MZ.categories.forEach(c => { if (c.parent != null) kids.set(c.parent, [...(kids.get(c.parent) || []), c.id]); });
+const nameTokens = new Map(MZ.products.map(p => [p.id, tokens(p.n)]));
+
+function descendants(id) {
+  const found = new Set([id]), queue = [id];
+  while (queue.length) for (const k of kids.get(queue.pop()) || []) if (!found.has(k)) { found.add(k); queue.push(k); }
+  return found;
+}
+const belongs = (p, set) => set.has(p.c) || (p.cx || []).some(c => set.has(c));
+const available = p => !p.na;
+const monthly = p => p.inst?.months ? Math.ceil(p.p / p.inst.months) : null;
+const discountPct = p => p.o ? Math.round((p.o - p.p) / p.o * 100) : 0;
+
+/** Та сама вибірка, що й CatalogStore.products(for:) у застосунку. */
+function select(sel) {
+  const catSet = new Set((sel.cats || []).flatMap(c => [...descendants(c)]));
+  const vendors = new Set(sel.vendors || []);
+  return MZ.products.filter(p => (catSet.size && belongs(p, catSet)) || vendors.has(p.v)
+    || (sel.sale && p.o) || (sel.installment && p.inst));
+}
+
+/** Кожне слово запиту — початок якогось слова назви (або артикул), як у застосунку. */
+function search(query) {
+  const q = query.toLowerCase().trim(), words = tokens(q);
+  if (!words.length) return [];
+  const parts = ["чохол", "скло", "плівка", "кабель", "адаптер", "ремінець"];
+  return MZ.products.map(p => {
+    const nt = nameTokens.get(p.id);
+    if (!words.every(w => nt.some(t => t.startsWith(w)) || p.code?.toLowerCase() === w)) return null;
+    const name = p.n.toLowerCase(), model = p.m?.toLowerCase();
+    const score = (name.includes(q) ? 100 : 0) + (model && (q.includes(model) || model.includes(q)) ? 60 : 0)
+      + (parts.some(x => name.includes(x)) ? 0 : 30) + (available(p) ? 20 : 0) + (p.used || name.startsWith("б/у") ? 0 : 10);
+    return [p, score];
+  }).filter(Boolean).sort((a, b) => b[1] - a[1] || a[0].p - b[0].p).map(x => x[0]);
+}
+
+const selHref = (title, sel) => `#/list?t=${encodeURIComponent(title)}&s=${encodeURIComponent(JSON.stringify(sel))}`;
+function linkFor(item) {
+  const path = (item.link.path || "").replace(/\/$/, "");
+  if (path === "trade-in") return "#/service/trade-in";
+  if (path === "repair") return "#/service/repair";
+  return selHref(item.t || "Товари", item.link);
+}
+
+// ---------- Кошик і обране ----------
+let cart = load("mz.cart", []).filter(l => byId.has(l.id) && l.qty > 0);
+let favs = new Set(load("mz.favs", []).filter(id => byId.has(id)));
+function setCart(next) { cart = next; save("mz.cart", cart); updateBadge(); }
+function addToCart(id) {
+  const has = cart.some(l => l.id === id);
+  setCart(has ? cart.map(l => l.id === id ? {...l, qty: l.qty + 1} : l) : [...cart, {id, qty: 1}]);
+}
+function updateBadge() {
+  const n = cart.reduce((s, l) => s + l.qty, 0), b = document.getElementById("cartBadge");
+  b.hidden = !n; b.textContent = n;
+}
+function toggleFav(id) {
+  favs = new Set(favs);
+  if (favs.has(id)) favs.delete(id); else favs.add(id);
+  save("mz.favs", [...favs]);
+}
+
+// ---------- Шматки розмітки ----------
+function productCard(p) {
+  const pct = discountPct(p), m = monthly(p);
+  return `<article class="card">
+    <a href="#/p/${p.id}" class="pic" tabindex="-1" aria-hidden="true">${p.img ? `<img src="${esc(p.img)}" alt="" loading="lazy" decoding="async">` : ""}</a>
+    ${pct ? `<span class="disc">-${pct}%</span>` : ""}
+    <button class="fav" data-fav="${p.id}" aria-pressed="${favs.has(p.id)}" aria-label="В обране: ${esc(p.n)}">${icon("heart")}</button>
+    <a href="#/p/${p.id}" class="name">${esc(p.n)}</a>
+    <div class="old">${p.o ? uah(p.o) : ""}</div>
+    <div class="price">${uah(p.p)}</div>
+    ${m ? `<div class="monthly">від ${uah(m)}/міс</div>` : ""}
+    <div class="stock ${available(p) ? "" : "no"}">${available(p) ? "В наявності" : "Немає в наявності"}</div>
+  </article>`;
+}
+
+function contactsHTML() {
+  const c = MZ.contacts;
+  return `<a class="contact" href="tel:${c.tel}"><span class="c-ico">${icon("phone")}</span><span><b>${c.phone}</b><small>${c.hours}</small></span></a>
+    <a class="contact" href="${c.telegram}" target="_blank" rel="noopener"><span class="c-ico">${icon("send")}</span><span><b>Telegram</b><small>${c.telegramName}</small></span></a>
+    <a class="contact" href="${c.instagram}" target="_blank" rel="noopener"><span class="c-ico">${icon("camera")}</span><span><b>Instagram</b><small>${c.instagramName}</small></span></a>`;
+}
+
+const searchForm = (q = "", placeholder = "Пошук") => `<form class="search" data-search role="search">
+  <label class="sr" for="q">Пошук товарів</label>
+  <input id="q" name="q" type="search" value="${esc(q)}" placeholder="${placeholder}" autocomplete="off" enterkeyhint="search">
+  <button class="iconbtn" aria-label="Шукати">${icon("search")}</button></form>`;
+
+// ---------- Сторінки ----------
+function pageHome() {
+  const h = MZ.home, c = MZ.contacts;
+  const quick = h.quick.filter(q => select(q.link).length);
+  return `<div class="stack">
+    ${searchForm()}
+    <nav class="services" aria-label="Послуги">
+      <a href="#/service/trade-in" style="color:var(--teal)">Trade-IN ${icon("swap")}</a>
+      <a href="#/service/repair" style="color:var(--lavender)">Ремонт ${icon("gear")}</a>
+      <a href="${selHref("б/у Техніка", {cats: USED_CATS})}" style="color:var(--blue)">Як Новий ${icon("spark")}</a>
+    </nav>
+    <section class="hero">
+      <img src="img/logo.png" alt="Логотип Mezey Shop" width="104" height="104">
+      <div>
+        <h1>Apple техніка | Mezey Shop</h1>
+        <ul><li>Нова та вживана</li><li>Ремонт будь-якої складності</li><li>Консолі PlayStation 5</li><li>${c.hours}</li></ul>
+        <div class="row">
+          <a class="btn primary" href="tel:${c.tel}">${icon("phone")} ${c.phone}</a>
+          <a class="btn outline" href="${c.telegram}" target="_blank" rel="noopener">${icon("send")} Telegram</a>
+        </div>
+      </div>
+    </section>
+    <button class="catalog-btn" data-open-menu>${icon("grid")} Каталог товарів</button>
+    ${quick.length ? `<div class="hscroll">${quick.map(q => `<a class="quick" href="${linkFor(q)}"><img src="${esc(q.img)}" alt="" loading="lazy">${esc(q.t)}</a>`).join("")}</div>` : ""}
+  </div>
+  <h2 class="h2">Категорії</h2>
+  <div class="tiles">${h.tiles.map(t => `<a class="tile" href="${linkFor(t)}">${t.img
+      ? `<img src="${esc(t.img)}" alt="" loading="lazy">`
+      : `<span class="glyph">${icon(/trade/i.test(t.t) ? "swap" : "gear")}</span>`}${esc(t.t)}</a>`).join("")}</div>
+  <section class="about">${h.about.map(p => `<p>${esc(p)}</p>`).join("")}</section>
+  <p class="foot-note">Ціни та наявність станом на ${esc(MZ.meta.feedDate || "—")}</p>`;
+}
+
+const SORTS = {
+  popular: ["За популярністю", (a, b) => (available(a) ? 0 : 1) - (available(b) ? 0 : 1) || (b.o ? b.o - b.p : 0) - (a.o ? a.o - a.p : 0)],
+  cheap: ["Від дешевих до дорогих", (a, b) => a.p - b.p],
+  expensive: ["Від дорогих до дешевих", (a, b) => b.p - a.p],
+  discount: ["Спершу зі знижкою", (a, b) => discountPct(b) - discountPct(a)],
+  newest: ["Новинки", (a, b) => b.id - a.id],
+};
+
+/** Сітка товарів із сортуванням, фільтром наявності й підкатегоріями; стан — у параметрах адреси. */
+function listingView(title, base, params, route) {
+  const sort = SORTS[params.get("sort")] ? params.get("sort") : "popular";
+  const onlyAvail = params.get("all") !== "1";
+  const sub = Number(params.get("sub")) || null;
+  const shown = Number(params.get("n")) || PAGE;
+  const subs = [...new Map(base.map(p => [p.c, cats.get(p.c)?.name]).filter(x => x[1])).entries()];
+  const subSet = sub ? descendants(sub) : null;
+  const items = base.filter(p => (!onlyAvail || available(p)) && (!subSet || belongs(p, subSet))).sort(SORTS[sort][1]);
+  const href = (key, value) => {
+    const next = new URLSearchParams(params);
+    if (value == null) next.delete(key); else next.set(key, value);
+    if (key !== "n") next.delete("n");
+    return `${route}?${next}`;
+  };
+  return `<div class="list-head"><h1>${esc(title)}</h1><span class="count">${items.length} товарів</span></div>
+    <div class="toolbar">
+      <select aria-label="Сортування" data-nav-select>${Object.entries(SORTS).map(([k, [label]]) =>
+        `<option value="${esc(href("sort", k))}" ${k === sort ? "selected" : ""}>${label}</option>`).join("")}</select>
+      <label><input type="checkbox" ${onlyAvail ? "checked" : ""} data-on="${esc(href("all", null))}" data-off="${esc(href("all", "1"))}"> Лише в наявності</label>
+    </div>
+    ${subs.length > 1 ? `<nav class="chips" aria-label="Підкатегорії">
+      <a class="chip" href="${esc(href("sub", null))}" aria-current="${!sub}">Усі</a>
+      ${subs.map(([id, name]) => `<a class="chip" href="${esc(href("sub", id))}" aria-current="${sub === id}">${esc(name)}</a>`).join("")}
+    </nav>` : ""}
+    ${items.length ? `<div class="grid">${items.slice(0, shown).map(productCard).join("")}</div>
+      ${items.length > shown ? `<a class="btn outline more" href="${esc(href("n", shown + PAGE))}" data-keep-scroll>Показати ще</a>` : ""}`
+      : `<p class="empty">Тут поки порожньо. Зніміть фільтр «Лише в наявності» або подзвоніть нам — підберемо.</p>`}`;
+}
+
+function pageList(params) {
+  let sel = {};
+  try { sel = JSON.parse(params.get("s") || "{}"); } catch { /* зіпсоване посилання — покажемо порожній список */ }
+  return listingView(params.get("t") || "Товари", select(sel), params, "#/list");
+}
+
+function pageSearch(params) {
+  const q = (params.get("q") || "").trim();
+  if (!q) return searchForm("", "Що шукаємо?") + `<p class="empty">Введіть назву товару, наприклад «iPhone 17 Pro» або «PlayStation 5».</p>`;
+  const found = search(q);
+  if (!found.length) return searchForm(q) + `<p class="empty">За запитом «${esc(q)}» нічого не знайшлося.</p>`;
+  const p = new URLSearchParams(params);
+  if (!p.has("all")) p.set("all", "1");
+  return searchForm(q) + `<div style="margin-top:10px">${listingView(`Пошук: ${q}`, found, p, "#/search")}</div>`;
+}
+
+function pageFavs(params) {
+  const list = [...favs].map(id => byId.get(id)).filter(Boolean);
+  if (!list.length) return `<h1 class="h2">Обране</h1><p class="empty">Натисніть ♡ на товарі, щоб зберегти його тут.</p>`;
+  const p = new URLSearchParams(params);
+  if (!p.has("all")) p.set("all", "1");
+  return listingView("Обране", list, p, "#/favorites");
+}
+
+/** Перемикачі варіантів (колір, памʼять) — інші товари тієї ж моделі, як на сайті. */
+function variantPicker(p, siblings, key) {
+  const values = [...new Set(siblings.map(x => x[key]).filter(Boolean))];
+  if (values.length < 2) return "";
+  const other = key === "color" ? "memory" : "color";
+  return `<div class="variant"><h3>${key === "color" ? "Колір пристрою:" : "Обʼєм памʼяті:"}</h3><div class="row">${values.map(v => {
+    const target = siblings.find(x => x[key] === v && x[other] === p[other]) || siblings.find(x => x[key] === v);
+    return `<a href="#/p/${target.id}" aria-current="${v === p[key]}">${esc(v)}</a>`;
+  }).join("")}</div></div>`;
+}
+
+function pageProduct(id, params) {
+  const p = byId.get(id);
+  if (!p) return `<p class="empty">Такого товару вже немає. <a href="#/" style="text-decoration:underline">На головну</a></p>`;
+  const d = MZ.details[String(id)] || {d: "", w: "", s: []};
+  const siblings = p.m ? MZ.products.filter(x => x.m === p.m && x.c === p.c) : [p];
+  const pct = discountPct(p), m = monthly(p), c = MZ.contacts, cat = cats.get(p.c);
+  const tab = d.d && params.get("tab") !== "specs" ? "desc" : "specs";
+  return `<p class="crumbs"><a href="#/">Головна</a>${cat ? ` / <a href="${selHref(cat.name, {cats: [cat.id]})}">${esc(cat.name)}</a>` : ""}</p>
+  <div class="product">
+    <div class="gallery">${p.img ? `<img src="${esc(p.img)}" alt="${esc(p.n)}">` : ""}
+      <button class="fav" data-fav="${p.id}" aria-pressed="${favs.has(p.id)}" aria-label="В обране">${icon("heart")}</button></div>
+    <div class="panel">
+      <h1>${esc(p.n)}</h1>
+      <p class="code">Код товару: ${p.id}${p.code ? ` · Артикул: ${esc(p.code)}` : ""}</p>
+      ${variantPicker(p, siblings, "color")}${variantPicker(p, siblings, "memory")}
+      <div class="prices"><span class="now">${uah(p.p)}</span>${p.o ? `<span class="was">${uah(p.o)}</span><span class="pct">-${pct}%</span>` : ""}</div>
+      ${m ? `<p style="color:var(--lavender);font-weight:600;font-size:13px;margin-top:4px">Оплата частинами: від ${uah(m)}/міс${p.inst.banks.length ? ` · ${esc(p.inst.banks.join(", "))}` : ""}</p>` : ""}
+      <p class="stock ${available(p) ? "" : "no"}" style="font-size:13px">${available(p) ? "В наявності" : "Немає в наявності — подзвоніть, повідомимо про надходження"}</p>
+      <div class="buy">
+        <button class="btn primary" data-buy="${p.id}">Купити</button>
+        <button class="btn outline" data-add="${p.id}">В кошик</button>
+      </div>
+      <a class="btn block" style="margin-top:8px;color:var(--teal)" href="#/service/trade-in">${icon("swap")} Обмін в TRADE IN</a>
+      <div class="perks">
+        <div class="perk">${icon("shield")} ${esc(d.w ? `Гарантія ${d.w}` : "Гарантія від магазину")}</div>
+        <div class="perk">${icon("truck")} Нова пошта 1–2 дні</div>
+        <div class="perk">${icon("card")} Оплата частинами</div>
+        <a class="perk" href="tel:${c.tel}">${icon("phone")} ${c.phone}</a>
+      </div>
+    </div>
+  </div>
+  ${d.d || d.s.length ? `<section class="panel" style="margin-top:12px">
+    <nav class="tabs">
+      ${d.d ? `<a href="#/p/${p.id}?tab=desc" aria-current="${tab === "desc"}" data-keep-scroll>Опис</a>` : ""}
+      ${d.s.length ? `<a href="#/p/${p.id}?tab=specs" aria-current="${tab === "specs"}" data-keep-scroll>Характеристики</a>` : ""}
+    </nav>
+    ${tab === "specs"
+      ? `<table class="specs">${d.s.map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table>`
+      : `<p class="desc">${esc(d.d)}</p>`}
+  </section>` : ""}
+  <section class="panel" style="margin-top:12px">
+    <h2 style="font-size:20px">Наявність</h2>
+    <p class="desc" style="margin-top:6px">${available(p) ? "Товар є в наявності. Самовивіз з магазину або доставка Новою поштою 1–2 дні." : "Зараз товару немає в наявності."}
+Уточнити: <a href="tel:${c.tel}" style="text-decoration:underline">${c.phone}</a>, ${c.hours}.</p>
+  </section>`;
+}
+
+const DELIVERY = [
+  ["pickup", "Самовивіз з магазину", "Безкоштовно, коли товар є в наявності"],
+  ["np", "Нова пошта", "1–2 дні, за тарифами перевізника"],
+  ["courier", "Курʼєр", "Доставка на адресу"],
+];
+const PAYMENT = [
+  ["cod", "Оплата при отриманні", "Готівкою або карткою"],
+  ["card", "Переказ на картку", "Реквізити — після підтвердження"],
+  ["parts", "Оплата частинами", "Через банк, уточнимо умови"],
+];
+const cartLines = () => cart.map(l => ({...l, p: byId.get(l.id)})).filter(l => l.p);
+
+function pageCart() {
+  const lines = cartLines();
+  if (!lines.length) return `<h1 class="h2">Кошик</h1><p class="empty">Кошик порожній.</p>
+    <a class="catalog-btn" href="#/" style="max-width:420px;margin:0 auto">${icon("grid")} До покупок</a>`;
+  const total = lines.reduce((s, l) => s + l.p.p * l.qty, 0);
+  const draft = load("mz.draft", {});
+  const delivery = DELIVERY.some(x => x[0] === draft.delivery) ? draft.delivery : "pickup";
+  const payment = PAYMENT.some(x => x[0] === draft.payment) ? draft.payment : "cod";
+  const radios = (name, list, current) => list.map(([v, t, n]) =>
+    `<label class="opt"><input type="radio" name="${name}" value="${v}" ${current === v ? "checked" : ""}><span>${t}<small>${n}</small></span></label>`).join("");
+  return `<h1 class="h2">Кошик</h1>
+  <div class="stack checkout">${lines.map(l => `<div class="line">
+    <a class="pic" href="#/p/${l.id}" tabindex="-1" aria-hidden="true">${l.p.img ? `<img src="${esc(l.p.img)}" alt="" loading="lazy">` : ""}</a>
+    <div><a class="name" href="#/p/${l.id}">${esc(l.p.n)}</a>
+      <div style="font-weight:800;margin-top:4px">${uah(l.p.p * l.qty)}</div>
+      <div class="qty"><button data-qty="${l.id}" data-d="-1" aria-label="Менше">−</button><span aria-label="Кількість">${l.qty}</span>
+        <button data-qty="${l.id}" data-d="1" aria-label="Більше">+</button><button class="rm" data-rm="${l.id}">Видалити</button></div>
+    </div></div>`).join("")}</div>
+  <form class="panel checkout" id="checkout" novalidate>
+    <div class="total">До сплати <b>${uah(total)}</b></div>
+    <label class="field"><span>Імʼя та прізвище</span><input name="name" autocomplete="name" value="${esc(draft.name)}" required></label>
+    <label class="field"><span>Телефон</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" value="${esc(draft.phone || "+380")}" required></label>
+    <h3 style="margin-top:16px">Доставка</h3><div class="opts">${radios("delivery", DELIVERY, delivery)}</div>
+    <label class="field" data-addr ${delivery === "pickup" ? "hidden" : ""}><span>Місто, відділення Нової пошти або адреса</span><input name="address" value="${esc(draft.address)}"></label>
+    <h3 style="margin-top:16px">Оплата</h3><div class="opts">${radios("payment", PAYMENT, payment)}</div>
+    <button class="btn primary block" style="margin-top:16px;min-height:50px">${icon("check")} Оформити замовлення</button>
+    <p class="note" style="margin-top:8px">Після оформлення надішліть замовлення нам у Telegram або подзвоніть — менеджер підтвердить наявність і ціну.</p>
+  </form>`;
+}
+
+function orderText(f, lines) {
+  const d = DELIVERY.find(x => x[0] === f.delivery)[1], p = PAYMENT.find(x => x[0] === f.payment)[1];
+  const total = lines.reduce((s, l) => s + l.p.p * l.qty, 0);
+  return ["Замовлення Mezey Shop", ...lines.map(l => `• ${l.p.n} (код ${l.id}) × ${l.qty} — ${uah(l.p.p * l.qty)}`),
+    `Разом: ${uah(total)}`, `Імʼя: ${f.name}`, `Телефон: ${f.phone}`,
+    `Доставка: ${d}${f.delivery !== "pickup" && f.address ? `, ${f.address}` : ""}`, `Оплата: ${p}`].join("\n");
+}
+
+function validateOrder(f) {
+  const errors = {};
+  if (f.name.length < 2) errors.name = "Вкажіть імʼя";
+  if (!/^\+380\d{9}$/.test(f.phone)) errors.phone = "Номер у форматі +380XXXXXXXXX";
+  if (f.delivery !== "pickup" && f.address.length < 3) errors.address = "Вкажіть місто й відділення або адресу";
+  return errors;
+}
+
+function submitCheckout(form) {
+  const raw = Object.fromEntries(new FormData(form));
+  const f = {...raw, name: (raw.name || "").trim(), address: (raw.address || "").trim(),
+    phone: (raw.phone || "").replace(/[^\d+]/g, "").replace(/^0/, "+380").replace(/^380/, "+380")};
+  save("mz.draft", f);
+  const errors = validateOrder(f);
+  form.querySelectorAll(".err").forEach(e => e.remove());
+  form.querySelectorAll("input").forEach(i => i.removeAttribute("aria-invalid"));
+  const keys = Object.keys(errors);
+  if (keys.length) {
+    keys.forEach(k => {
+      const input = form.elements[k];
+      input.setAttribute("aria-invalid", "true");
+      input.insertAdjacentHTML("afterend", `<div class="err" role="alert">${errors[k]}</div>`);
+    });
+    form.elements[keys[0]].focus();
+    return;
+  }
+  const text = orderText(f, cartLines()), c = MZ.contacts;
+  setCart([]);
+  app.innerHTML = `<div class="ok"><div class="mark">${icon("check")}</div><h1 style="font-size:24px">Замовлення сформовано</h1>
+    <p style="color:var(--text2);margin-top:6px">Щоб ми його отримали, надішліть цей текст у Telegram або подзвоніть.</p>
+    <pre id="orderText">${esc(text)}</pre>
+    <div class="row">
+      <button class="btn primary" data-copy>${icon("check")} Скопіювати</button>
+      <a class="btn outline" href="${c.telegram}" target="_blank" rel="noopener">${icon("send")} Telegram</a>
+      <a class="btn outline" href="tel:${c.tel}">${icon("phone")} ${c.phone}</a>
+    </div></div>`;
+  window.scrollTo(0, 0);
+}
+
+function pageService(kind) {
+  const c = MZ.contacts, trade = kind === "trade-in";
+  return `<section class="panel" style="margin-top:8px">
+    <span style="color:${trade ? "var(--teal)" : "var(--lavender)"}">${icon(trade ? "swap" : "gear")}</span>
+    <h1 style="font-size:26px;margin-top:6px">${trade ? "Trade-In" : "Сервісний центр"}</h1>
+    <p class="desc" style="margin-top:8px">${trade
+      ? "Здайте свій iPhone, iPad, MacBook чи Apple Watch у рахунок нового пристрою. Надішліть модель, обʼєм памʼяті й стан — оцінимо й запропонуємо ціну."
+      : "Ремонт техніки Apple будь-якої складності. Опишіть, що сталося з пристроєм, — підкажемо вартість і строки."}</p>
+    <div class="row" style="margin-top:14px">
+      <a class="btn primary" href="tel:${c.tel}">${icon("phone")} ${c.phone}</a>
+      <a class="btn outline" href="${c.telegram}" target="_blank" rel="noopener">${icon("send")} Telegram</a>
+    </div>
+    <p class="note" style="text-align:left;margin-top:10px">${c.hours}</p>
+  </section>`;
+}
+
+// ---------- Меню й контакти ----------
+const menuEl = document.getElementById("menu"), contactsEl = document.getElementById("contacts");
+let lastFocus = null;
+function openLayer(el, html) {
+  lastFocus = document.activeElement;
+  el.innerHTML = html;
+  el.hidden = false;
+  document.body.style.overflow = "hidden";
+  el.querySelector("[data-close]")?.focus();
+}
+function closeLayer(el) {
+  if (el.hidden) return;
+  el.hidden = true;
+  document.body.style.overflow = "";
+  lastFocus?.focus?.();
+}
+function openMenu() {
+  const items = MZ.home.menu.filter(m => select(m.link).length);
+  openLayer(menuEl, `<div><div class="head"><span class="brand" style="justify-content:flex-start"><img src="img/logo.png" alt="" width="38" height="38"><span>Mezey Shop</span></span>
+    <button class="iconbtn" data-close aria-label="Закрити меню">${icon("close")}</button></div>
+    <h2 style="padding:4px 16px 10px;font-size:22px">Каталог товарів</h2>
+    <nav class="menu-list">${items.map(m => `<a href="${selHref(m.t, m.link)}">${icon(ICONS[m.icon] || "more")}${esc(m.t)}${icon("chev", "ico chev")}</a>`).join("")}</nav>
+    <nav class="menu-list">
+      <a href="#/favorites">${icon("heart")}Обране</a>
+      <a href="#/cart">${icon("cart")}Кошик</a>
+      <a href="#/service/trade-in">${icon("swap")}Trade-In</a>
+      <a href="#/service/repair">${icon("gear")}Ремонт</a>
+      <button data-contacts>${icon("phone")}Подзвонити ${MZ.contacts.phone}</button>
+    </nav></div>`);
+}
+function openContacts() {
+  openLayer(contactsEl, `<div class="sheet"><div class="list-head"><h2>Звʼяжіться з нами</h2>
+    <button class="iconbtn" data-close aria-label="Закрити">${icon("close")}</button></div>${contactsHTML()}</div>`);
+}
+
+// ---------- Роутер (адреси виду #/p/123, щоб працювало на GitHub Pages без сервера) ----------
+let keepScroll = false;
+function render() {
+  const [path, query = ""] = location.hash.replace(/^#/, "").split("?");
+  const params = new URLSearchParams(query);
+  const [page, arg] = path.split("/").filter(Boolean);
+  closeLayer(menuEl);
+  closeLayer(contactsEl);
+  const product = page === "p" ? byId.get(Number(arg)) : null;
+  const views = {
+    list: () => [pageList(params), params.get("t") || "Товари"],
+    p: () => [pageProduct(Number(arg), params), product?.n],
+    search: () => [pageSearch(params), "Пошук"],
+    cart: () => [pageCart(), "Кошик"],
+    favorites: () => [pageFavs(params), "Обране"],
+    service: () => [pageService(arg), arg === "trade-in" ? "Trade-In" : "Ремонт"],
+  };
+  const [html, title] = (views[page] || (() => [pageHome(), null]))();
+  app.innerHTML = html;
+  document.title = title ? `${title} — Mezey Shop` : "Mezey Shop — Apple техніка";
+  if (!keepScroll) window.scrollTo(0, 0);
+  keepScroll = false;
+  if (page === "search" && !params.get("q")) app.querySelector("#q")?.focus();
+  if (!page) typewriter();
+}
+
+let typeTimer = null;
+function typewriter() {
+  clearTimeout(typeTimer);
+  const input = app.querySelector("#q");
+  if (!input || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const words = ["iPhone 17 Pro", "AirPods Pro 3", "PlayStation 5", "Apple Watch", "iPad Air"];
+  let w = 0, i = 0, back = false;
+  const tick = () => {
+    if (!document.body.contains(input) || input.value || document.activeElement === input) { input.placeholder = "Пошук"; return; }
+    const word = words[w];
+    i += back ? -1 : 1;
+    input.placeholder = word.slice(0, i) || " ";
+    if (!back && i === word.length) { back = true; typeTimer = setTimeout(tick, 1600); return; }
+    if (back && i === 0) { back = false; w = (w + 1) % words.length; }
+    typeTimer = setTimeout(tick, back ? 45 : 90);
+  };
+  tick();
+}
+
+// ---------- Події ----------
+document.addEventListener("click", e => {
+  const t = e.target.closest("button,a");
+  if (!t) return;
+  if (t.matches("[data-keep-scroll]")) keepScroll = true;
+  if (t.matches("#menuBtn,[data-open-menu]")) return openMenu();
+  if (t.matches("[data-contacts]")) { closeLayer(menuEl); return openContacts(); }
+  if (t.matches("[data-close]")) { closeLayer(menuEl); return closeLayer(contactsEl); }
+  if (t.dataset.fav) {
+    const id = Number(t.dataset.fav);
+    toggleFav(id);
+    return t.setAttribute("aria-pressed", favs.has(id));
+  }
+  if (t.dataset.add) { addToCart(Number(t.dataset.add)); t.textContent = "Додано ✓"; return; }
+  if (t.dataset.buy) { addToCart(Number(t.dataset.buy)); location.hash = "#/cart"; return; }
+  if (t.dataset.qty) {
+    const id = Number(t.dataset.qty), d = Number(t.dataset.d);
+    setCart(cart.map(l => l.id === id ? {...l, qty: Math.max(1, l.qty + d)} : l));
+    keepScroll = true;
+    return render();
+  }
+  if (t.dataset.rm) {
+    setCart(cart.filter(l => l.id !== Number(t.dataset.rm)));
+    keepScroll = true;
+    return render();
+  }
+  if (t.matches("[data-copy]")) {
+    const text = document.getElementById("orderText").textContent;
+    const done = ok => { t.textContent = ok ? "Скопійовано ✓" : "Виділіть текст і скопіюйте"; };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => done(true), () => done(false));
+    else done(false);
+  }
+});
+contactsEl.addEventListener("click", e => { if (e.target === contactsEl) closeLayer(contactsEl); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") { closeLayer(menuEl); closeLayer(contactsEl); } });
+document.addEventListener("change", e => {
+  const el = e.target;
+  if (el.matches("[data-nav-select]")) { keepScroll = true; location.hash = el.value; }
+  if (el.dataset.on) { keepScroll = true; location.hash = el.checked ? el.dataset.on : el.dataset.off; }
+  if (el.name === "delivery") app.querySelector("[data-addr]").hidden = el.value === "pickup";
+});
+document.addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target;
+  if (f.matches("[data-search]")) location.hash = `#/search?q=${encodeURIComponent(f.q.value.trim())}`;
+  if (f.id === "checkout") submitCheckout(f);
+});
+window.addEventListener("hashchange", render);
+
+const c0 = MZ.contacts;
+document.getElementById("footer").innerHTML = `<b style="font:500 20px Jost,Futura,sans-serif;color:#fff">Mezey Shop</b>
+  <p style="margin-top:6px">Apple техніка: нова та вживана · Консолі PlayStation 5 · Ремонт будь-якої складності</p>
+  <div class="row"><a href="tel:${c0.tel}">${c0.phone}</a><span>${c0.hours}</span>
+  <a href="${c0.telegram}" target="_blank" rel="noopener">Telegram</a>
+  <a href="${c0.instagram}" target="_blank" rel="noopener">Instagram</a></div>`;
+updateBadge();
+render();
+</script>
+</body>
+</html>
